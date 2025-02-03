@@ -18,6 +18,9 @@ RUN apt-get update -y && \
 # 安装 Nonebot 必要依赖
 RUN pip install --no-cache-dir nb-cli 'nonebot2[fastapi,httpx,websockets,aiohttp]' nonebot-adapter-onebot -i https://pypi.tuna.tsinghua.edu.cn/simple
 
+#更改镜像源
+RUN pip config set global.index-url https://mirrors.tuna.tsinghua.edu.cn/pypi/web/simple
+
 # 设置工作目录为 nb2
 WORKDIR /nb2
 
